@@ -9,7 +9,7 @@
 
 ![오름 시연 — 질문 → AI 도구 호출 → 분석 → 반출 검사 → 보고서](media/demo_preview.gif)
 
-- 시연 영상(약 90초): [`media/오름_시연_상권.mp4`](media/오름_시연_상권.mp4)
+- 시연 영상(약 90초): **[YouTube](https://youtu.be/50ypJzED7m4)** · 파일 [`media/오름_시연_상권.mp4`](media/오름_시연_상권.mp4)
 - 기획서(15쪽): [`docs/오름_AI_Agent_기획서.pdf`](docs/오름_AI_Agent_기획서.pdf)
 - 검증 결과: [`docs/eval`](docs/eval) · 프롬프트: [`app/agent/prompts.py`](app/agent/prompts.py)
 
