@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>오름 OREUM · 제주 지역경제 분석 에이전트</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' x2='1'%3E%3Cstop offset='0' stop-color='%233B78E7'/%3E%3Cstop offset='1' stop-color='%2316A39D'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M4 50 Q20 16 34 18 Q48 20 60 50Z' fill='url(%23g)'/%3E%3Ccircle cx='48' cy='14' r='7' fill='%23F39A3D'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="vendor/leaflet.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body data-step="1">
+
+<!-- 배경: 제주 해안 실사 영상(현무암 해안·돌하르방·파도). 움직임 줄이기 설정이면 정지 사진만 -->
+<div class="scene" aria-hidden="true">
+  <video class="bg-video" id="bgVideo" muted loop playsinline preload="auto" poster="vendor/bg/jeju_poster.jpg">
+    <source src="vendor/bg/jeju_loop.mp4" type="video/mp4">
+  </video>
+  <div class="veil"></div>
+</div>
+
+<!-- 메뉴 토글(하나) -->
+<button class="menu-btn" id="btnMenu" aria-label="메뉴 열기/닫기" aria-expanded="true"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+<div class="mini-brand" aria-hidden="true">오름</div>
+
+<!-- 사이드바: 모든 메뉴 -->
+<aside class="rail" id="rail">
+  <div class="brand">
+    <svg viewBox="0 0 64 44" class="logo" aria-hidden="true"><defs><linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#3B78E7"/><stop offset="1" stop-color="#16A39D"/></linearGradient></defs><path d="M2 40 Q18 8 33 10 Q48 12 62 40Z" fill="url(#lg)"/><circle cx="50" cy="9" r="6" fill="#F39A3D"/></svg>
+    <div><div class="name">오름</div><div class="name-en">OREUM</div></div>
+  </div>
+  <button class="new-q" id="btnNew"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>새 질문</button>
+
+  <div class="rail-title">분석 단계</div>
+  <ol class="stepper" id="stepper">
+    <li data-step="1"><b>1</b><div><div class="t">질문하기</div><div class="d">무엇이 궁금한가요?</div></div></li>
+    <li data-step="2"><b>2</b><div><div class="t">데이터 준비</div><div class="d">센터 CSV 넣기</div></div></li>
+    <li data-step="3"><b>3</b><div><div class="t">분석 실행</div><div class="d">로컬 계산 + 반출 검사</div></div></li>
+    <li data-step="4"><b>4</b><div><div class="t">보고서·반출</div><div class="d">PDF·DOCX·PNG</div></div></li>
+  </ol>
+
+  <div class="rail-title">진행 기록</div>
+  <ul class="timeline" id="timeline"><li class="muted">아직 기록이 없습니다.</li></ul>
+
+  <nav class="rail-menu">
+    <button id="btnAudit"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6h16M4 12h10M4 18h7M17 15l3 3-3 3"/></svg>AI 전송 기록</button>
+    <button id="btnRules"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7 3v5c0 4.5-3 8.3-7 10-4-1.7-7-5.5-7-10V6z"/></svg>데이터 보호 원칙</button>
+    <button id="btnHelp"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .9-1 1.7M12 17h.01"/></svg>사용 안내</button>
+    <button id="btnCleanup" class="warn-item" title="업로드한 데이터와 결과를 모두 삭제"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 7h14M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/></svg>퇴실 정리</button>
+  </nav>
+  <div class="chips" id="chips"></div>
+</aside>
+
+<div class="shell">
+  <main class="main">
+    <!-- STEP 1 -->
+    <section class="panel hero" id="p1">
+      <div class="greet">
+        <h1 class="hello"><span class="grad">혼저 옵서예.</span><span class="ask-line">무엇을 분석해 드릴까요?</span></h1>
+        <p class="sub">상권 · 축제 효과 · 버스 이용 — 평소 말하듯 물어보면, 필요한 데이터와 분석·보고서까지 준비합니다.</p>
+      </div>
+      <div class="ask">
+        <textarea id="question" rows="1" placeholder="예) 애월읍에서 카페를 창업하려고 하는데 상권이 어떤가요?"></textarea>
+        <div class="ask-bar">
+          <span class="ask-hint">Enter 계획 세우기 · Shift+Enter 줄바꿈</span>
+          <button class="send" id="btnPlan"><span class="lbl">분석 계획 세우기</span><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M13 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+      <div class="examples" id="examples"></div>
+      <div id="planBox"></div>
+    </section>
+
+    <!-- STEP 2 -->
+    <section class="panel sheet hidden" id="p2">
+      <h2>데이터 준비</h2>
+      <p class="lead">센터 조회 화면에서 아래 데이터를 <b>한 달씩</b> CSV로 내려받아 이곳에 끌어다 놓으세요. 파일 종류와 기간은 자동으로 알아봅니다.</p>
+      <div class="grid2">
+        <div>
+          <div class="checklist" id="checklist"></div>
+        </div>
+        <div>
+          <label class="drop" id="drop">
+            <input type="file" id="fileInput" multiple accept=".csv">
+            <div class="drop-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 16V4M7 9l5-5 5 5M4 16v3a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1v-3"/></svg></div>
+            <div class="drop-t">CSV 파일을 여기에 끌어다 놓기</div>
+            <div class="drop-d">여러 개를 한 번에 넣어도 됩니다 · 같은 파일은 중복 제거</div>
+          </label>
+          <div class="demo-box" id="demoBox"></div>
+          <div id="ingested"></div>
+        </div>
+      </div>
+      <div class="actions"><button class="primary big" id="btnRun">분석 실행 →</button></div>
+    </section>
+
+    <!-- STEP 3 -->
+    <section class="panel sheet narrow hidden" id="p3">
+      <div class="run-head"><span class="spark big" aria-hidden="true"></span><div><h2>분석 중입니다</h2>
+      <p class="lead">모든 계산은 이 PC에서 이루어지고, 결과표마다 반출 기준 검사를 거칩니다.</p></div></div>
+      <ul class="run-steps" id="runSteps"></ul>
+    </section>
+
+    <!-- STEP 4 -->
+    <section class="panel sheet wide hidden" id="p4">
+      <div id="result"></div>
+    </section>
+  </main>
+</div>
+
+<div class="modal hidden" id="modal"><div class="modal-card"><button class="x" id="modalX" aria-label="닫기">×</button><div id="modalBody"></div></div></div>
+<div class="toast hidden" id="toast"></div>
+<script src="vendor/leaflet.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

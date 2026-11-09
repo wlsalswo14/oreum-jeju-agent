@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>{{ title }}</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm 16mm 15mm; }
+  :root { --tangerine:#F28C28; --ocean:#1E6FB8; --basalt:#2B2D31; --muted:#6B7280; --line:#E5E7EB; --soft:#F6F8FB; }
+  * { box-sizing: border-box; }
+  body { font-family: "Malgun Gothic", "Apple SD Gothic Neo", "Noto Sans KR", sans-serif; color: var(--basalt);
+         font-size: 10.2pt; line-height: 1.6; margin: 0; }
+  h1 { font-size: 21pt; margin: 0 0 6px; letter-spacing: -0.5px; }
+  h2 { font-size: 13.5pt; margin: 22px 0 8px; padding-bottom: 5px; border-bottom: 2px solid var(--basalt); }
+  h3 { font-size: 11pt; margin: 14px 0 6px; }
+  p { margin: 4px 0 8px; }
+  .cover { border-left: 8px solid var(--tangerine); padding: 6px 0 6px 16px; margin-bottom: 14px; }
+  .brand { color: var(--tangerine); font-weight: 700; font-size: 10pt; letter-spacing: 1px; }
+  .meta { color: var(--muted); font-size: 9pt; }
+  .question { background: var(--soft); border-radius: 8px; padding: 10px 14px; margin: 10px 0 4px; }
+  .synthetic { border: 2px dashed #C0392B; color: #C0392B; font-weight: 700; padding: 8px 12px; border-radius: 8px;
+               margin: 10px 0; font-size: 9.5pt; }
+  .headline { font-size: 13pt; font-weight: 700; margin: 14px 0 6px; }
+  .kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; margin: 10px 0 6px; }
+  .kpi { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
+  .kpi .l { font-size: 8.5pt; color: var(--muted); }
+  .kpi .v { font-size: 13.5pt; font-weight: 700; }
+  .finding { margin: 10px 0 12px; page-break-inside: avoid; }
+  .finding .t { font-weight: 700; }
+  .rec { border-left: 4px solid var(--ocean); background: var(--soft); padding: 7px 12px; margin: 6px 0; border-radius: 0 6px 6px 0;
+         page-break-inside: avoid; }
+  figure { margin: 8px 0 12px; page-break-inside: avoid; }
+  figure img { width: 100%; max-height: 330px; object-fit: contain; }
+  figcaption { font-size: 8.5pt; color: var(--muted); }
+  table { width: 100%; border-collapse: collapse; font-size: 8.6pt; margin: 6px 0 12px; page-break-inside: auto; }
+  th { background: #EEF2F7; text-align: left; padding: 4px 6px; border-bottom: 1px solid #CBD5E1; }
+  td { padding: 3px 6px; border-bottom: 1px solid var(--line); }
+  td.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .tbl-title { font-weight: 700; font-size: 9.2pt; margin-top: 10px; }
+  .badge { display: inline-block; font-size: 8pt; padding: 1px 7px; border-radius: 10px; font-weight: 700; }
+  .pass { background: #E3F4EA; color: #1F7A45; } .fixed { background: #FFF1E0; color: #B4590F; } .blocked { background: #FDE2E1; color: #B42318; }
+  .small { font-size: 8.6pt; color: var(--muted); }
+  .bp { border: 1px solid var(--line); border-radius: 8px; padding: 10px 14px; white-space: pre-wrap; }
+  .pb { page-break-before: always; }
+  ul { margin: 4px 0 8px 18px; padding: 0; }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="brand">OREUM · 제주 지역경제 분석 AI Agent</div>
+  <h1>{{ title }}</h1>
+  <div class="meta">분석 대상: {{ target }} · 분석 기간: {{ period }} · 작성: {{ created }} · 제주빅데이터센터 분석실</div>
+</div>
+<div class="question"><b>질문</b> {{ question }}</div>
+{% if synthetic %}
+<div class="synthetic">⚠ 이 보고서는 대회 시연용 '가상(SYNTHETIC) 센터 데이터'로 작성되었습니다. 실제 수치가 아니며, 센터에서 실제 데이터를 넣으면 같은 절차로 실제 결과가 생성됩니다.</div>
+{% endif %}
+
+<div class="headline">{{ narrative.headline }}</div>
+<p>{{ narrative.summary }}</p>
+
+{% if kpis %}
+<div class="kpis">
+{% for k in kpis %}<div class="kpi"><div class="l">{{ k.label }}</div><div class="v">{{ k.value }}</div></div>{% endfor %}
+</div>
+{% endif %}
+
+<h2>1. 주요 분석 결과</h2>
+{% for f in narrative.findings %}
+<div class="finding"><div class="t">{{ loop.index }}. {{ f.title }}</div><p>{{ f.detail }}</p>
+{% for fig in f.figures %}<figure><img src="{{ fig.src }}"><figcaption>{{ fig.caption }}</figcaption></figure>{% endfor %}
+</div>
+{% endfor %}
+
+{% if extra_figures %}
+<h3>참고 그림</h3>
+{% for fig in extra_figures %}<figure><img src="{{ fig.src }}"><figcaption>{{ fig.caption }}</figcaption></figure>{% endfor %}
+{% endif %}
+
+<h2>2. 제언</h2>
+{% for r in narrative.recommendations %}<div class="rec"><b>{{ r.title }}</b><br>{{ r.detail }}</div>{% endfor %}
+
+{% if narrative.business_text %}
+<h2>3. {{ business_title }}</h2>
+<div class="bp">{{ narrative.business_text }}</div>
+{% endif %}
+
+<h2>{{ '4' if narrative.business_text else '3' }}. 한계 및 유의사항</h2>
+<ul>{% for l in narrative.limitations %}<li>{{ l }}</li>{% endfor %}{% for n in notes %}<li>{{ n }}</li>{% endfor %}</ul>
+
+<div class="pb"></div>
+<h2>부록 A. 분석 집계표 (반출 검사 통과본)</h2>
+{% for t in tables %}
+<div class="tbl-title">[{{ t.key }}] {{ t.title }} <span class="badge {{ t.status }}">{{ t.status_ko }}</span></div>
+{{ t.html | safe }}
+{% if t.note %}<div class="small">{{ t.note }}</div>{% endif %}
+{% endfor %}
+
+<h2>부록 B. 데이터 출처·가공 방법</h2>
+<table><tr><th>데이터</th><th>출처 표기</th><th>반출 등급</th></tr>
+{% for s in sources %}<tr><td>{{ s.id }}</td><td>{{ s.label }}</td><td>{{ s.grade }}</td></tr>{% endfor %}
+</table>
+<p class="small">출처 표기 방식: 「제주빅데이터센터, 데이터셋(이름, 기간)」(반출 정책 권장 형식). 카드 데이터는 비씨카드 결제분, 유동인구는 통신사 기반 추정치로 전체 모집단과 다를 수 있습니다.</p>
+
+<h2>부록 C. 반출 검사 결과 및 반출 신청서 초안</h2>
+<table><tr><th>자료</th><th>판정</th><th>가공 방식</th><th>처리 내역</th></tr>
+{% for g in guard %}<tr><td>{{ g.title }}</td><td><span class="badge {{ g.status }}">{{ g.status_ko }}</span></td><td>{{ g.method }}</td><td>{{ g.actions }}</td></tr>{% endfor %}
+</table>
+<h3>반출 신청 시 기재할 내용(초안)</h3>
+<table><tr><th>자료</th><th>출처(원본데이터 명칭)</th><th>활용 사유</th></tr>
+{% for r in export_rows %}<tr><td>{{ r['자료'] }}</td><td>{{ r['출처(원본데이터 명칭)'] }}</td><td>{{ r['활용 사유'] }}</td></tr>{% endfor %}
+</table>
+<p class="small">근거: 제주빅데이터센터 데이터 반출 정책(2026.09.01 개정) — 반출 불가 데이터의 단순집계는 10 미만 수치 불포함 시, 응용집계는 수치 포함 반출 가능. 시각화는 그림파일(PNG)로 제공. 원본·발췌 및 데이터 샘플 출력은 포함하지 않음.</p>
+
+{% if ai.calls %}<h2>부록 D. AI 활용 내역</h2>
+<p class="small">사용 모델: {{ ai.model }} · 호출 {{ ai.calls }}회 · 입력 {{ ai.input_tokens }} / 출력 {{ ai.output_tokens }} 토큰 · 추정 비용 약 {{ ai.cost_krw }}원(${{ ai.cost_usd }}).
+AI에는 원본 데이터를 보내지 않았으며, 반출 검사를 통과한 집계표와 공개 명세 정보만 전달했습니다. 모든 수치는 로컬(센터 PC)에서 계산되었고, AI는 해석·문장 작성만 수행했습니다.</p>{% endif %}
+{% if unverified %}<p class="small">※ 자동 검증에서 근거 표와 일치하지 않은 수치 표현: {{ unverified }}</p>{% endif %}
+</body>
+</html>

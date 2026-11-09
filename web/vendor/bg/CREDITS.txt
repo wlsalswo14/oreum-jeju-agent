@@ -1,0 +1,14 @@
+오름(OREUM) 화면 배경 — 출처와 라이선스
+
+jeju_poster.jpg (정지 사진), jeju_loop.mp4 (반복 영상)
+
+1) 제주 현무암 해안과 돌하르방(실제 사진)
+   - 원본: Pixabay 사진 7910450 "ocean-statue-rocks-coast"
+     https://pixabay.com/photos/ocean-statue-rocks-coast-7910450/
+   - 라이선스: Pixabay Content License (https://pixabay.com/service/license-summary/)
+     → 상업·비상업 무료 사용, 출처 표기 의무 없음(예의상 기록)
+   - 변경 사항: 화면 비율에 맞게 자름
+
+2) 움직임(파도)
+   - AI 이미지→영상: Wan2.2-TI2V-5B (Apache-2.0)
+   - 돌하르방과 바위는 매 프레임 원본 사진으로 고정하고 바다만 움직임

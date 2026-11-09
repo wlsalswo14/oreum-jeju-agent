@@ -1,0 +1,434 @@
+{
+  "timestamp": "2026-11-10 01:01:45",
+  "env": {
+    "timestamp": "2026-11-10 01:01:45",
+    "provider": "codex",
+    "model": "gpt-6-luna",
+    "effort_plan": "high",
+    "effort_write": "high",
+    "processor": "AMD Ryzen 5 8640HS w/ Radeon 760M Graphics",
+    "cpu_count": 12,
+    "total_ram_gb": 13.8,
+    "peak_mb": 520.33
+  },
+  "scenarios": [
+    {
+      "id": "trade",
+      "label": "창업·상권 분석",
+      "question": "애월읍에서 카페를 창업하려고 하는데 상권이 어떤가요?",
+      "followup": "한림읍이랑 비교해 줘",
+      "plan": {
+        "sec": 36.533,
+        "tools": 3,
+        "mode": "trade_area"
+      },
+      "run": {
+        "sec": 45.372,
+        "progress": [
+          {
+            "step": "질문 해석",
+            "status": "done",
+            "msg": "창업·상권 분석 · 도구 3회"
+          },
+          {
+            "step": "데이터 불러오기",
+            "status": "done",
+            "msg": "센터 데이터 0종 + 제주데이터허브 4종"
+          },
+          {
+            "step": "로컬 분석",
+            "status": "done",
+            "msg": "집계표 11개"
+          },
+          {
+            "step": "반출 기준 검사",
+            "status": "done",
+            "msg": "통과 11 · 처리 후 통과 0 · 차단 0"
+          },
+          {
+            "step": "차트 생성",
+            "status": "done",
+            "msg": "9개(PNG)"
+          },
+          {
+            "step": "해석·보고서 문장 작성",
+            "status": "done",
+            "msg": "수치 근거 검증 통과"
+          },
+          {
+            "step": "보고서 생성",
+            "status": "done",
+            "msg": "PDF, DOCX, HTML, ZIP"
+          },
+          {
+            "step": "완료",
+            "status": "done",
+            "msg": "45초"
+          }
+        ],
+        "kpis_count": 9,
+        "guard": {
+          "pass": 11,
+          "fixed": 0,
+          "blocked": 0
+        },
+        "unverified_count": 0,
+        "narrative_mode": "llm",
+        "files": {
+          "pdf": "오름_애월읍_비알콜_음료점업_창업·상권_분석_20261110_0058.pdf",
+          "docx": "오름_애월읍_비알콜_음료점업_창업·상권_분석_20261110_0058.docx",
+          "html": "오름_애월읍_비알콜_음료점업_창업·상권_분석_20261110_0058.html",
+          "zip": "오름_애월읍_비알콜_음료점업_창업·상권_분석_20261110_0058_반출패키지.zip"
+        },
+        "files_exist": {
+          "pdf": true,
+          "docx": true,
+          "html": true,
+          "zip": true
+        },
+        "error": null
+      },
+      "followup_res": {
+        "sec": 17.977,
+        "tools": [
+          "compare_regions"
+        ],
+        "answer_len": 175,
+        "answer_snippet": "애월읍의 12개월 이용금액은 8억 2,272만 원으로, 한림읍의 2억 5,038만 원보다 큽니다. 전년 대비 애월읍은 11.6% 증가했고 한림읍은 2.8% 감소했습니다. 관광객 결제 비중은 애월읍 59.8%, 한림읍 48.9%이며, 동종 점포는 각각 224개와 152개"
+      },
+      "usage": {
+        "calls": 6,
+        "input_tokens": 111793,
+        "output_tokens": 2887,
+        "cost_usd": 0.0126,
+        "cost_krw": 18,
+        "model": "gpt-6-luna",
+        "provider": "codex",
+        "log": [
+          {
+            "purpose": "plan_1",
+            "model": "gpt-6-luna",
+            "in": 17202,
+            "out": 199,
+            "usd": 0.00182
+          },
+          {
+            "purpose": "plan_2",
+            "model": "gpt-6-luna",
+            "in": 17340,
+            "out": 180,
+            "usd": 0.00182
+          },
+          {
+            "purpose": "plan_3",
+            "model": "gpt-6-luna",
+            "in": 17958,
+            "out": 464,
+            "usd": 0.00203
+          },
+          {
+            "purpose": "narrative",
+            "model": "gpt-6-luna",
+            "in": 20548,
+            "out": 1667,
+            "usd": 0.00289
+          },
+          {
+            "purpose": "followup_1",
+            "model": "gpt-6-luna",
+            "in": 19276,
+            "out": 104,
+            "usd": 0.00198
+          },
+          {
+            "purpose": "followup_2",
+            "model": "gpt-6-luna",
+            "in": 19469,
+            "out": 273,
+            "usd": 0.00208
+          }
+        ]
+      },
+      "total_sec": 99.886,
+      "error": null
+    },
+    {
+      "id": "event",
+      "label": "축제·행사 효과 분석",
+      "question": "2024 최남단 방어축제가 대정읍 지역경제에 준 효과를 알고 싶어요",
+      "followup": "순효과는 어떻게 계산했어?",
+      "plan": {
+        "sec": 38.506,
+        "tools": 5,
+        "mode": "event_impact"
+      },
+      "run": {
+        "sec": 45.287,
+        "progress": [
+          {
+            "step": "질문 해석",
+            "status": "done",
+            "msg": "축제·행사 효과 분석 · 도구 5회"
+          },
+          {
+            "step": "데이터 불러오기",
+            "status": "done",
+            "msg": "센터 데이터 0종 + 제주데이터허브 4종"
+          },
+          {
+            "step": "로컬 분석",
+            "status": "done",
+            "msg": "집계표 6개"
+          },
+          {
+            "step": "반출 기준 검사",
+            "status": "done",
+            "msg": "통과 6 · 처리 후 통과 0 · 차단 0"
+          },
+          {
+            "step": "차트 생성",
+            "status": "done",
+            "msg": "4개(PNG)"
+          },
+          {
+            "step": "해석·보고서 문장 작성",
+            "status": "done",
+            "msg": "수치 근거 검증 통과"
+          },
+          {
+            "step": "보고서 생성",
+            "status": "done",
+            "msg": "PDF, DOCX, HTML, ZIP"
+          },
+          {
+            "step": "완료",
+            "status": "done",
+            "msg": "45초"
+          }
+        ],
+        "kpis_count": 3,
+        "guard": {
+          "pass": 6,
+          "fixed": 0,
+          "blocked": 0
+        },
+        "unverified_count": 0,
+        "narrative_mode": "llm",
+        "files": {
+          "pdf": "오름_최남단_방어축제_지역경제_효과_분석_20261110_0059.pdf",
+          "docx": "오름_최남단_방어축제_지역경제_효과_분석_20261110_0059.docx",
+          "html": "오름_최남단_방어축제_지역경제_효과_분석_20261110_0059.html",
+          "zip": "오름_최남단_방어축제_지역경제_효과_분석_20261110_0059_반출패키지.zip"
+        },
+        "files_exist": {
+          "pdf": true,
+          "docx": true,
+          "html": true,
+          "zip": true
+        },
+        "error": null
+      },
+      "followup_res": {
+        "sec": 21.344,
+        "tools": [
+          "explain_method"
+        ],
+        "answer_len": 162,
+        "answer_snippet": "행사기간 대정읍 방문인구 증가율 31.1%에서 같은 기간 비교지역 증가율 -11.9%를 뺐습니다. 따라서 순효과는 43.0%포인트입니다. 두 지역에 공통으로 작용한 요인을 줄여 보는 이중차분 추정치이며, 축제의 인과효과를 확정하는 값은 아닙니다. (event.lift,"
+      },
+      "usage": {
+        "calls": 6,
+        "input_tokens": 125490,
+        "output_tokens": 3495,
+        "cost_usd": 0.0143,
+        "cost_krw": 20,
+        "model": "gpt-6-luna",
+        "provider": "codex",
+        "log": [
+          {
+            "purpose": "plan_1",
+            "model": "gpt-6-luna",
+            "in": 17202,
+            "out": 183,
+            "usd": 0.00181
+          },
+          {
+            "purpose": "plan_2",
+            "model": "gpt-6-luna",
+            "in": 17403,
+            "out": 329,
+            "usd": 0.0019
+          },
+          {
+            "purpose": "plan_3",
+            "model": "gpt-6-luna",
+            "in": 18804,
+            "out": 715,
+            "usd": 0.00224
+          },
+          {
+            "purpose": "narrative",
+            "model": "gpt-6-luna",
+            "in": 18732,
+            "out": 1821,
+            "usd": 0.00278
+          },
+          {
+            "purpose": "followup_1",
+            "model": "gpt-6-luna",
+            "in": 35554,
+            "out": 228,
+            "usd": 0.00367
+          },
+          {
+            "purpose": "followup_2",
+            "model": "gpt-6-luna",
+            "in": 17795,
+            "out": 219,
+            "usd": 0.00189
+          }
+        ]
+      },
+      "total_sec": 105.151,
+      "error": null
+    },
+    {
+      "id": "transit",
+      "label": "버스 정류소·노선 진단",
+      "question": "대정읍 모슬포 일대 버스 정류소 이용을 진단해 주세요",
+      "followup": "가장 붐비는 정류소는 어디야?",
+      "plan": {
+        "sec": 39.121,
+        "tools": 6,
+        "mode": "transit"
+      },
+      "run": {
+        "sec": 45.001,
+        "progress": [
+          {
+            "step": "질문 해석",
+            "status": "done",
+            "msg": "버스 정류소·노선 진단 · 도구 6회"
+          },
+          {
+            "step": "데이터 불러오기",
+            "status": "done",
+            "msg": "센터 데이터 0종 + 제주데이터허브 3종"
+          },
+          {
+            "step": "로컬 분석",
+            "status": "done",
+            "msg": "집계표 8개"
+          },
+          {
+            "step": "반출 기준 검사",
+            "status": "done",
+            "msg": "통과 8 · 처리 후 통과 0 · 차단 0"
+          },
+          {
+            "step": "차트 생성",
+            "status": "done",
+            "msg": "6개(PNG)"
+          },
+          {
+            "step": "해석·보고서 문장 작성",
+            "status": "done",
+            "msg": "수치 근거 검증 통과"
+          },
+          {
+            "step": "보고서 생성",
+            "status": "done",
+            "msg": "PDF, DOCX, HTML, ZIP"
+          },
+          {
+            "step": "완료",
+            "status": "done",
+            "msg": "45초"
+          }
+        ],
+        "kpis_count": 3,
+        "guard": {
+          "pass": 8,
+          "fixed": 0,
+          "blocked": 0
+        },
+        "unverified_count": 0,
+        "narrative_mode": "llm",
+        "files": {
+          "pdf": "오름_대정읍_버스_정류소·노선_이용_진단_20261110_0101.pdf",
+          "docx": "오름_대정읍_버스_정류소·노선_이용_진단_20261110_0101.docx",
+          "html": "오름_대정읍_버스_정류소·노선_이용_진단_20261110_0101.html",
+          "zip": "오름_대정읍_버스_정류소·노선_이용_진단_20261110_0101_반출패키지.zip"
+        },
+        "files_exist": {
+          "pdf": true,
+          "docx": true,
+          "html": true,
+          "zip": true
+        },
+        "error": null
+      },
+      "followup_res": {
+        "sec": 10.414,
+        "tools": [],
+        "answer_len": 61,
+        "answer_snippet": "대정환승정류장(대정읍사무소)이 가장 붐비며, 일평균 승차는 환승 포함 168명입니다. (transit.top)"
+      },
+      "usage": {
+        "calls": 5,
+        "input_tokens": 90320,
+        "output_tokens": 3154,
+        "cost_usd": 0.0106,
+        "cost_krw": 15,
+        "model": "gpt-6-luna",
+        "provider": "codex",
+        "log": [
+          {
+            "purpose": "plan_1",
+            "model": "gpt-6-luna",
+            "in": 17204,
+            "out": 289,
+            "usd": 0.00186
+          },
+          {
+            "purpose": "plan_2",
+            "model": "gpt-6-luna",
+            "in": 17652,
+            "out": 317,
+            "usd": 0.00192
+          },
+          {
+            "purpose": "plan_3",
+            "model": "gpt-6-luna",
+            "in": 18367,
+            "out": 458,
+            "usd": 0.00207
+          },
+          {
+            "purpose": "narrative",
+            "model": "gpt-6-luna",
+            "in": 18904,
+            "out": 2027,
+            "usd": 0.0029
+          },
+          {
+            "purpose": "followup_1",
+            "model": "gpt-6-luna",
+            "in": 18193,
+            "out": 63,
+            "usd": 0.00185
+          }
+        ]
+      },
+      "total_sec": 94.539,
+      "error": null
+    }
+  ],
+  "total": {
+    "total_sec": 299.597,
+    "calls": 17,
+    "input_tokens": 327603,
+    "output_tokens": 9536,
+    "cost_krw": 53
+  }
+}

@@ -1,0 +1,178 @@
+{
+ "note": "제주데이터허브(https://jejudatahub.net)에서 로그인 없이 내려받은 공개 원본을 전처리한 파일입니다. 출처 표기: '제주데이터허브, <데이터명>(기간)'. 원본 파일은 저장소에 포함하지 않습니다.",
+ "license": "공공데이터의 제공 및 이용 활성화에 관한 법률 및 제주데이터허브 이용약관에 따름",
+ "generated_by": "tools/prepare_public.py",
+ "datasets": {
+  "793": {
+   "dataset_id": "793",
+   "title": "제주특별자치도 상가(상권) 정보",
+   "source_url": "https://jejudatahub.net/data/view/data/793",
+   "original_files": [
+    "제주특별자치도 상가(상권) 정보.csv"
+   ],
+   "raw_sha1": [
+    "fb776feefb20b75a251ce59151d37e51f161b68a"
+   ],
+   "period": "2025.09 기준",
+   "rows_raw": 57865,
+   "rows_out": 57592,
+   "output": "stores.parquet",
+   "processing": [
+    "cp949 → UTF-8 읽기",
+    "시도명·주소·우편번호 컬럼 제거(용량 축소)",
+    "지번주소에서 읍·면 하위 리(里) 이름 추출 → '리' 컬럼",
+    "업종명 공백 정리, 완전 중복 행 제거",
+    "BC 42업종 매핑은 실행 시 app/catalog/industries.py 규칙으로 계산"
+   ]
+  },
+  "746": {
+   "dataset_id": "746",
+   "title": "제주특별자치도_주제1_제주 예비창업자를 위한 업종별 카드 매출과 매장수 데이터 활용_매쉬업 결과",
+   "source_url": "https://jejudatahub.net/data/view/data/746",
+   "original_files": [
+    "제주특별자치도_주제1_제주 예비창업자를 위한 업종별 카드 매출과 매장수 데이터 활용_매쉬업결과_17.csv",
+    "제주특별자치도_주제1_제주 예비창업자를 위한 업종별 카드 매출과 매장수 데이터 활용_매쉬업결과_18.csv",
+    "제주특별자치도_주제1_제주 예비창업자를 위한 업종별 카드 매출과 매장수 데이터 활용_매쉬업결과_19.csv",
+    "제주특별자치도_주제1_제주 예비창업자를 위한 업종별 카드 매출과 매장수 데이터 활용_매쉬업결과_20.csv",
+    "제주특별자치도_주제1_제주 예비창업자를 위한 업종별 카드 매출과 매장수 데이터 활용_매쉬업결과_21.csv"
+   ],
+   "raw_sha1": [
+    "0849605cf08fbc10463c0d35d830ca7fc3e36a9f",
+    "b78db7ae4675c751b3575f43c5b504a836bf4acc",
+    "d9a04bac46fea107975027d3ee54d328a241c55b",
+    "2817a9231ffa96456a0d7bd4bec1ffe7e285654c",
+    "5b89b138fcd755fd02d9a3f5921396682082e1e1"
+   ],
+   "period": "2017.01~2021.05",
+   "rows_raw": 2194723,
+   "rows_out": 380526,
+   "output": [
+    "card_mashup.parquet",
+    "card_mashup_stores.parquet",
+    "card_mashup_demo.parquet"
+   ],
+   "processing": [
+    "연도별 원본(2017~2021.05) 6개 중 2017년 중복본은 이용자수·이용건수 포함본만 사용",
+    "년월 → YYYY-MM 정규화, 컬럼명 영문 표준화(1-07/1-08 명세와 동일 이름)",
+    "연령대·성별 차원을 합산: 월×시군구×도심구분×법정동×업종×이용자구분×관광구분 이용금액 합계",
+    "이용건수·이용자수는 2017년만 존재(그 외 연도 결측)",
+    "매장수(업종×시군구 값이 행마다 반복)는 월×시군구×업종 최댓값으로 별도 표 분리",
+    "연령대·성별 구성은 연도×법정동×업종×이용자구분×관광구분×연령대×성별 연간 합계로 별도 표(card_mashup_demo, n_months=해당 연도 포함 개월 수)",
+    "관광구분 결측 → 'NA'"
+   ]
+  },
+  "748": {
+   "dataset_id": "748",
+   "title": "제주특별자치도_주제3_상권분석을 위한 유동인구에 따른 카드 매출액 변화 데이터 활용_매쉬업결과",
+   "source_url": "https://jejudatahub.net/data/view/data/748",
+   "original_files": [
+    "제주특별자치도_주제3_상권분석을 위한 유동인구에 따른 카드 매출액 변화 데이터 활용_매쉬업결과_(2101~2105).csv",
+    "제주특별자치도_주제3_상권분석을 위한 유동인구에 따른 카드 매출액 변화 데이터 활용_매쉬업결과_18.csv",
+    "제주특별자치도_주제3_상권분석을 위한 유동인구에 따른 카드 매출액 변화 데이터 활용_매쉬업결과_19.csv",
+    "제주특별자치도_주제3_상권분석을 위한 유동인구에 따른 카드 매출액 변화 데이터 활용_매쉬업결과_17.csv",
+    "제주특별자치도_주제3_상권분석을 위한 유동인구에 따른 카드 매출액 변화 데이터 활용_매쉬업결과_20(수정).csv"
+   ],
+   "raw_sha1": [
+    "a8f909eae5faac88d54f5ecdbf8728ffdc5503e1",
+    "cb981a803ac349fca7d42373443b5a077b907ecc",
+    "8b2beff4182bdbfd30c765b7ac9f27cdc94b2885",
+    "98a6d39e800e0c035c33521e6a419b3f4ca99edd",
+    "4e393fafb0d73ee880be1cefb73b01fb9be86ed6"
+   ],
+   "period": "2017.01~2021.05",
+   "rows_raw": 124987,
+   "rows_out": 124987,
+   "output": [
+    "card_pop_sales.parquet",
+    "card_pop_population.parquet"
+   ],
+   "processing": [
+    "연도별 원본 5개 병합, 년월 표기 3종('2018-01-01','2020-05','21-Apr') → YYYY-MM",
+    "매출(월×행정동×업종×성별)과 유동인구(월×행정동×성별, 업종 행마다 반복되던 값)를 분리",
+    "유동인구 값은 월간 시간대별 측정값 합(연인원) — 원본 그대로, 소수 1자리 반올림",
+    "법인 행(성별=법인)은 인구값 없음"
+   ]
+  },
+  "761": {
+   "dataset_id": "761",
+   "title": "제주관광공사_제주관광정보시스템(VISIT JEJU)_축제행사콘텐츠",
+   "source_url": "https://jejudatahub.net/data/view/data/761",
+   "original_files": [
+    "제주특별자치도주요행사정보.csv"
+   ],
+   "raw_sha1": [
+    "f96f799a838400ecdfd630e6b11f51859532018f"
+   ],
+   "period": "2012.07.18~2025.04.13",
+   "rows_raw": 522,
+   "rows_out": 507,
+   "output": "festivals.parquet",
+   "processing": [
+    "원본: 522",
+    "삭제·오류 표기 행 제거: 6",
+    "날짜 결측 제거: 7",
+    "종료일<시작일 제거: 2",
+    "완전 중복 제거: 0",
+    "이름에 '취소/미개최' 표기 → cancelled=True 로 표시(삭제하지 않음)",
+    "장소(읍면동·좌표)는 원본에 없으므로 app/catalog/festivals.py 큐레이션 표로 결합"
+   ]
+  },
+  "512": {
+   "dataset_id": "512",
+   "title": "일별 시간대별 버스 승차 인원 수 현황",
+   "source_url": "https://jejudatahub.net/data/view/data/512",
+   "original_files": [
+    "일별시간대별버스승차인원수현황.csv"
+   ],
+   "raw_sha1": [
+    "e8c51c1cb80e76ce59438fc5cdf33f30f425a298"
+   ],
+   "period": "2023.12.25~2025.10.26",
+   "rows_raw": 37057,
+   "rows_out": 37057,
+   "output": "bus_daily_timeband.parquet",
+   "processing": [
+    "UTF-8(BOM) 읽기, base_date → 날짜형",
+    "컬럼명 단순화(dow, time_band)",
+    "완전 중복 제거"
+   ]
+  },
+  "583": {
+   "dataset_id": "583",
+   "title": "읍면동 단위 내국인 유동인구(Open API)",
+   "source_url": "https://jejudatahub.net/data/view/data/583",
+   "period": "대정읍 20231109~20231210, 대정읍 20241107~20241208, 안덕면 20241107~20241208, 한경면 20241107~20241208, 애월읍 20231021~20251020",
+   "rows_out": 13744,
+   "output": "pop583_daily.parquet",
+   "processing": [
+    "Open API 응답(baseDate·city·emd·gender·ageGroup·resdPop·workPop·visitPop)을 그대로 저장",
+    "대표 시나리오 지역·기간만 조회(tools/fetch_hub_api.py POP_JOBS)",
+    "완전 중복 제거"
+   ]
+  },
+  "612": {
+   "dataset_id": "612",
+   "title": "버스 정류소 기본 정보(Open API)",
+   "source_url": "https://jejudatahub.net/data/view/data/612",
+   "period": "2026-11-08 조회",
+   "rows_out": 4352,
+   "output": "stops612.parquet",
+   "processing": [
+    "Open API 전체 조회 후 stationId 중복 제거",
+    "경도·위도 숫자형 변환"
+   ]
+  },
+  "613": {
+   "dataset_id": "613",
+   "title": "일일 정류소별 버스 이용자 정보(Open API)",
+   "source_url": "https://jejudatahub.net/data/view/data/613",
+   "period": "20241114, 20241115, 20241116, 20241117, 20241121, 20241122, 20241123, 20241124, 20241128, 20241129, 20241130, 20241201",
+   "rows_out": 89681,
+   "output": "stop_usage613.parquet",
+   "processing": [
+    "대표 시나리오 날짜(행사일·같은 요일 기준선)만 조회(데이터별 일일 1,000회 쿼터)",
+    "지불방법(카드·현금) 차원을 합산: 날짜×정류소×탑승구분×요금제 이용자수 합계"
+   ]
+  }
+ }
+}

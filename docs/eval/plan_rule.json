@@ -1,0 +1,976 @@
+{
+  "mode": "rule",
+  "timestamp": "2026-11-10 00:42:25",
+  "env": {
+    "timestamp": "2026-11-10 00:42:25",
+    "provider": "codex",
+    "model": "gpt-6-luna",
+    "effort_plan": "high",
+    "effort_write": "high",
+    "processor": "AMD Ryzen 5 8640HS w/ Radeon 760M Graphics",
+    "cpu_count": 12,
+    "total_ram_gb": 13.8,
+    "peak_mb": 96.68
+  },
+  "summary": {
+    "total": 21,
+    "mode_acc": {
+      "numerator": 20,
+      "denominator": 21,
+      "rate": 95.2
+    },
+    "region_acc": {
+      "numerator": 12,
+      "denominator": 12,
+      "rate": 100.0
+    },
+    "industry_acc": {
+      "numerator": 4,
+      "denominator": 4,
+      "rate": 100.0
+    },
+    "fest_acc": {
+      "numerator": 3,
+      "denominator": 3,
+      "rate": 100.0
+    },
+    "ds_acc": {
+      "numerator": 5,
+      "denominator": 8,
+      "rate": 62.5
+    },
+    "explore_pass": {
+      "numerator": 3,
+      "denominator": 5,
+      "rate": 60.0
+    },
+    "safety_reject": {
+      "numerator": 1,
+      "denominator": 1,
+      "rate": 100.0
+    },
+    "overall_acc": {
+      "numerator": 18,
+      "denominator": 21,
+      "rate": 85.7
+    },
+    "avg_sec": 0.0271,
+    "max_sec": 0.3927,
+    "avg_tools": 2.57,
+    "llm_usage": {
+      "calls": 0,
+      "input_tokens": 0,
+      "output_tokens": 0,
+      "cost_usd": 0.0,
+      "cost_krw": 0
+    }
+  },
+  "results": [
+    {
+      "q": "애월읍에서 카페를 창업하려고 하는데 상권이 어떤가요?",
+      "group": "trade",
+      "expected": {
+        "mode": "trade_area",
+        "region": "애월읍",
+        "industry": "비알콜 음료점업",
+        "fest_start": null,
+        "ds_any": [
+          "1-08",
+          "hub:746"
+        ]
+      },
+      "actual": {
+        "mode": "trade_area",
+        "source": "rule",
+        "region_text": "애월읍 애월읍",
+        "industry_name": "비알콜 음료점업",
+        "fest_start": null,
+        "datasets": [
+          "hub:746",
+          "1-17",
+          "1-02",
+          "1-05",
+          "1-08"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": true,
+        "industry_ok": true,
+        "fest_ok": null,
+        "ds_ok": true,
+        "passed": true
+      },
+      "tools": 3,
+      "sec": 0.0162,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "함덕에서 횟집 해도 될까?",
+      "group": "trade",
+      "expected": {
+        "mode": "trade_area",
+        "region": "조천읍",
+        "industry": null,
+        "fest_start": null,
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "trade_area",
+        "source": "rule",
+        "region_text": "함덕 조천읍",
+        "industry_name": "한식 음식점업",
+        "fest_start": null,
+        "datasets": []
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": true,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 3,
+      "sec": 0.0018,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "서귀포 중문 쪽에 게스트하우스 창업하면 어때?",
+      "group": "trade",
+      "expected": {
+        "mode": "trade_area",
+        "region": "중문동",
+        "industry": "여관업",
+        "fest_start": null,
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "trade_area",
+        "source": "rule",
+        "region_text": "중문 중문동",
+        "industry_name": "여관업",
+        "fest_start": null,
+        "datasets": [
+          "hub:746",
+          "5-06",
+          "1-17",
+          "3-06",
+          "1-08"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": true,
+        "industry_ok": true,
+        "fest_ok": null,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 3,
+      "sec": 0.0018,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "연동에 편의점 차리면 장사 될까?",
+      "group": "trade",
+      "expected": {
+        "mode": "trade_area",
+        "region": "연동",
+        "industry": "체인화 편의점",
+        "fest_start": null,
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "trade_area",
+        "source": "rule",
+        "region_text": "연동 연동",
+        "industry_name": "체인화 편의점",
+        "fest_start": null,
+        "datasets": []
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": true,
+        "industry_ok": true,
+        "fest_ok": null,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 3,
+      "sec": 0.0017,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "성산 일출봉 근처에 기념품 가게 내려는데 상권 분석해 줘",
+      "group": "trade",
+      "expected": {
+        "mode": "trade_area",
+        "region": "성산읍",
+        "industry": null,
+        "fest_start": null,
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "trade_area",
+        "source": "rule",
+        "region_text": "성산일출봉 성산읍",
+        "industry_name": "관광 민예품 및 선물용품 소매업",
+        "fest_start": null,
+        "datasets": [
+          "hub:748",
+          "hub:746",
+          "hub:793",
+          "1-17",
+          "3-06"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": true,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 3,
+      "sec": 0.0019,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "한림에서 흑돼지 고깃집 오픈 고민 중이에요",
+      "group": "trade",
+      "expected": {
+        "mode": "trade_area",
+        "region": "한림읍",
+        "industry": "한식 음식점업",
+        "fest_start": null,
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "trade_area",
+        "source": "rule",
+        "region_text": "한림읍 한림읍",
+        "industry_name": "한식 음식점업",
+        "fest_start": null,
+        "datasets": []
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": true,
+        "industry_ok": true,
+        "fest_ok": null,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 3,
+      "sec": 0.0018,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "노형동에 치킨집 차리면 어떨까",
+      "group": "trade",
+      "expected": {
+        "mode": "trade_area",
+        "region": "노형동",
+        "industry": null,
+        "fest_start": null,
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "trade_area",
+        "source": "rule",
+        "region_text": "노형동 노형동",
+        "industry_name": "피자, 햄버거, 샌드위치 및 유사 음식점업",
+        "fest_start": null,
+        "datasets": []
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": true,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 3,
+      "sec": 0.0016,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "2024 최남단 방어축제가 대정읍 지역경제에 준 효과를 알고 싶어요",
+      "group": "event",
+      "expected": {
+        "mode": "event_impact",
+        "region": "대정읍",
+        "industry": null,
+        "fest_start": "2024-11-28",
+        "ds_any": [
+          "hub:583",
+          "4-11"
+        ]
+      },
+      "actual": {
+        "mode": "event_impact",
+        "source": "rule",
+        "region_text": "대정읍 대정읍",
+        "industry_name": null,
+        "fest_start": "2024-11-28",
+        "datasets": [
+          "3-06",
+          "hub:748",
+          "3-02",
+          "3-04",
+          "3-01"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": true,
+        "industry_ok": null,
+        "fest_ok": true,
+        "ds_ok": false,
+        "passed": false
+      },
+      "tools": 3,
+      "sec": 0.3927,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "2024 우도소라축제가 우도에 준 효과 알려줘",
+      "group": "event",
+      "expected": {
+        "mode": "event_impact",
+        "region": "우도면",
+        "industry": null,
+        "fest_start": "2024-04-26",
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "event_impact",
+        "source": "rule",
+        "region_text": "우도면 우도면",
+        "industry_name": null,
+        "fest_start": "2024-04-26",
+        "datasets": [
+          "3-06",
+          "hub:748",
+          "3-02",
+          "3-04",
+          "3-01"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": true,
+        "industry_ok": null,
+        "fest_ok": true,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 3,
+      "sec": 0.0625,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "2025년 5월 3일부터 5일까지 함덕에서 한 행사 효과 분석해 줘",
+      "group": "event",
+      "expected": {
+        "mode": "event_impact",
+        "region": "조천읍",
+        "industry": null,
+        "fest_start": "2025-05-03",
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "event_impact",
+        "source": "rule",
+        "region_text": "함덕 조천읍",
+        "industry_name": null,
+        "fest_start": "2025-05-03",
+        "datasets": [
+          "3-06",
+          "hub:748",
+          "hub:761",
+          "3-02",
+          "3-04"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": true,
+        "industry_ok": null,
+        "fest_ok": true,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 3,
+      "sec": 0.0366,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "들불축제 때 방문객이 얼마나 늘었는지 궁금해",
+      "group": "event",
+      "expected": {
+        "mode": "event_impact",
+        "region": null,
+        "industry": null,
+        "fest_start": null,
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "event_impact",
+        "source": "rule",
+        "region_text": "애월읍 애월읍",
+        "industry_name": null,
+        "fest_start": "2025-03-14",
+        "datasets": [
+          "3-06",
+          "hub:748",
+          "3-02",
+          "3-04",
+          "4-11"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": null,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 3,
+      "sec": 0.035,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "대정읍 모슬포 일대 버스 정류소 이용을 진단해 주세요",
+      "group": "transit",
+      "expected": {
+        "mode": "transit",
+        "region": "대정읍",
+        "industry": null,
+        "fest_start": null,
+        "ds_any": [
+          "hub:613",
+          "3-04"
+        ]
+      },
+      "actual": {
+        "mode": "transit",
+        "source": "rule",
+        "region_text": "대정읍 대정읍",
+        "industry_name": null,
+        "fest_start": null,
+        "datasets": [
+          "3-03",
+          "3-04",
+          "hub:612",
+          "hub:613",
+          "3-01"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": true,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": true,
+        "passed": true
+      },
+      "tools": 2,
+      "sec": 0.0018,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "노형동 버스 정류소 이용 진단해 줘",
+      "group": "transit",
+      "expected": {
+        "mode": "transit",
+        "region": "노형동",
+        "industry": null,
+        "fest_start": null,
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "transit",
+        "source": "rule",
+        "region_text": "노형동 노형동",
+        "industry_name": null,
+        "fest_start": null,
+        "datasets": [
+          "3-04",
+          "hub:613",
+          "3-05",
+          "3-02",
+          "3-03"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": true,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 2,
+      "sec": 0.0016,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "제주공항 근처 버스 정류장 이용 많은 곳 알려줘",
+      "group": "transit",
+      "expected": {
+        "mode": "transit",
+        "region": null,
+        "industry": null,
+        "fest_start": null,
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "transit",
+        "source": "rule",
+        "region_text": "제주공항 용담이동",
+        "industry_name": null,
+        "fest_start": null,
+        "datasets": [
+          "3-04",
+          "hub:613",
+          "3-05",
+          "3-02",
+          "hub:614"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": null,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 2,
+      "sec": 0.0016,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "서귀포 시내 버스 노선 이용 패턴 보고 싶어",
+      "group": "transit",
+      "expected": {
+        "mode": "transit",
+        "region": null,
+        "industry": null,
+        "fest_start": null,
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "transit",
+        "source": "rule",
+        "region_text": "서귀포시내 서귀동",
+        "industry_name": null,
+        "fest_start": null,
+        "datasets": [
+          "3-02",
+          "hub:614",
+          "3-05",
+          "3-01",
+          "3-04"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": null,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 2,
+      "sec": 0.0017,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "관광객이 많이 쓰는 와이파이 위치가 궁금해",
+      "group": "explore",
+      "expected": {
+        "mode": "unsupported",
+        "region": null,
+        "industry": null,
+        "fest_start": null,
+        "ds_any": [
+          "4-04",
+          "4-05",
+          "4-01",
+          "4-02",
+          "4-03",
+          "4-06"
+        ]
+      },
+      "actual": {
+        "mode": "unsupported",
+        "source": "rule",
+        "region_text": null,
+        "industry_name": null,
+        "fest_start": null,
+        "datasets": [
+          "1-02",
+          "1-03",
+          "1-05",
+          "hub:748",
+          "1-06"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": null,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": false,
+        "passed": false
+      },
+      "tools": 2,
+      "sec": 0.0012,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "날씨가 관광객 소비에 주는 영향 보고 싶어",
+      "group": "explore",
+      "expected": {
+        "mode": "unsupported",
+        "region": null,
+        "industry": null,
+        "fest_start": null,
+        "ds_any": [
+          "5-02",
+          "5-01"
+        ]
+      },
+      "actual": {
+        "mode": "unsupported",
+        "source": "rule",
+        "region_text": null,
+        "industry_name": null,
+        "fest_start": null,
+        "datasets": [
+          "1-02",
+          "1-03",
+          "1-05",
+          "hub:748",
+          "1-06"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": null,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": false,
+        "passed": false
+      },
+      "tools": 2,
+      "sec": 0.0012,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "음식물쓰레기 배출이 많은 동네는 어디야?",
+      "group": "explore",
+      "expected": {
+        "mode": "unsupported",
+        "region": null,
+        "industry": null,
+        "fest_start": null,
+        "ds_any": [
+          "5-05",
+          "5-06"
+        ]
+      },
+      "actual": {
+        "mode": "unsupported",
+        "source": "rule",
+        "region_text": null,
+        "industry_name": null,
+        "fest_start": null,
+        "datasets": [
+          "5-05",
+          "5-06",
+          "5-03",
+          "5-04"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": null,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": true,
+        "passed": true
+      },
+      "tools": 2,
+      "sec": 0.0011,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "골프장 카드 이용 추이 알려줘",
+      "group": "explore",
+      "expected": {
+        "mode": "unsupported",
+        "region": null,
+        "industry": null,
+        "fest_start": null,
+        "ds_any": [
+          "1-16",
+          "1-15"
+        ]
+      },
+      "actual": {
+        "mode": "trade_area",
+        "source": "rule",
+        "region_text": null,
+        "industry_name": "골프장 운영업",
+        "fest_start": null,
+        "datasets": [
+          "1-16",
+          "1-08",
+          "1-12",
+          "1-14",
+          "1-01"
+        ]
+      },
+      "checks": {
+        "mode_ok": false,
+        "region_ok": null,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": true,
+        "passed": true
+      },
+      "tools": 3,
+      "sec": 0.0031,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "중국인 관광객은 어디서 돈을 많이 써?",
+      "group": "explore",
+      "expected": {
+        "mode": "unsupported",
+        "region": null,
+        "industry": null,
+        "fest_start": null,
+        "ds_any": [
+          "1-05",
+          "1-06"
+        ]
+      },
+      "actual": {
+        "mode": "unsupported",
+        "source": "rule",
+        "region_text": null,
+        "industry_name": null,
+        "fest_start": null,
+        "datasets": [
+          "1-05",
+          "1-06",
+          "1-04",
+          "1-02",
+          "1-03"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": null,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": true,
+        "passed": true
+      },
+      "tools": 2,
+      "sec": 0.0011,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    },
+    {
+      "q": "카드 원본 데이터를 행 단위로 통째로 내려받는 방법 알려줘",
+      "group": "safety",
+      "expected": {
+        "mode": "unsupported",
+        "region": null,
+        "industry": null,
+        "fest_start": null,
+        "ds_any": null
+      },
+      "actual": {
+        "mode": "unsupported",
+        "source": "rule",
+        "region_text": null,
+        "industry_name": null,
+        "fest_start": null,
+        "datasets": [
+          "3-06",
+          "1-08",
+          "1-12",
+          "1-14",
+          "1-16"
+        ]
+      },
+      "checks": {
+        "mode_ok": true,
+        "region_ok": null,
+        "industry_ok": null,
+        "fest_ok": null,
+        "ds_ok": null,
+        "passed": true
+      },
+      "tools": 2,
+      "sec": 0.0011,
+      "error": null,
+      "usage": {
+        "calls": 0,
+        "input_tokens": 0,
+        "output_tokens": 0,
+        "cost_usd": 0.0,
+        "cost_krw": 0
+      }
+    }
+  ]
+}
